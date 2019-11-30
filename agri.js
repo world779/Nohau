@@ -27,7 +27,7 @@ function postNohau(elementId){
 }
 
 function countFav(post_id) {	//count
-	var fav = document.getElementById("fav").value;
+	// var fav = document.getElementById("fav").value;
 	Vegetables.equalTo("post_id", post_id)
 		.fetch()
 		.then(function(vegetables){
@@ -36,9 +36,8 @@ function countFav(post_id) {	//count
 			// } else {
 			// 	setResult(elementId, false, "error"+e);
 			// }
-     fav = vegetables.fav +1;
-		 vegetables.set("fav", fav);
-     vegetables.save()
+		 vegetables.setIncrement("fav", 1);
+		vegetables.update();
 		})
 		.then(function(obj){
 		 console.log("Favが加算されました。");
