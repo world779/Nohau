@@ -38,7 +38,7 @@ function countFav() {	//count
 			// } else {
 			// 	setResult(elementId, false, "error"+e);
 			// }
-     vegetables.fav +=;
+     fav = vegetables.fav +1;
 		 vegetables.set("fav", fav);
      vegetables.save()
 		})
@@ -55,6 +55,17 @@ function getNohau(elementId){
 			.then(function(obj){
 						setResult(elementId, true, "success");
 						return obj;
+			})
+			.catch(function(err){
+				setResult(elementId, false, "error"+err);
+			});
+}
+
+function getFav(post_id){
+	    Vegetables.fetch()
+			.then(function(obj){
+						setResult(post_id, true, "success");
+						return obj.fav;
 			})
 			.catch(function(err){
 				setResult(elementId, false, "error"+err);
