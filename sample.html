@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript" charset="utf-8" src="ncmb.min.js"></script>
+    <!--script>
+    var appKey = "b0d79659fafe27fe567c7086b2a2a816efe837b448d377183292b3f367cef80a";
+var clientKey = "386d15b14d1383343384514850c7ef64b47e9f75a86f4ebfed21557835003c8e";
+var ncmb= new NCMB(appKey, clientKey);
+    </script-->
+    <script type="text/javascript" charset="utf-8" src="agri.js"></script>
+
+
+<body>
+	<input type="button" value="getNohau" onclick="getNohau()">
+	<input type="button" value="countFav" onclick="countFav('abcdefg')">
+	<input type="button" value="postNohau" onclick="postNohau()">
+	<input type="button" value="gFav" onclick="getFav('abcdefg')">
+	<table>
+	<tr>
+	     <td><th></th></td>
+	     <td>fav : </td>
+	     <td><input type="number" id="fav" value=0></td>
+	</tr>
+	<tr>
+	     <td><th></th></td>
+	     <td>user_id : </td>
+	     <td><input type="text" id="user_id" value="1234567890"></td>
+	</tr>
+	<tr>
+	     <td><th></th></td>
+	     <td>vegi_name : </td>
+	     <td><input type="text" id="vegi_name" value="tomato"></td>
+	</tr>
+	<tr>
+	     <td><th></th></td>
+	     <td>post_id : </td>
+	     <td><input type="text" id="post_id" value="abcdefg"></td>
+	</tr>
+	<tr>
+	     <td><th></th></td>
+	     <td>title : </td>
+	     <td><input type="text" id="title" value="tomato"></td>
+	</tr>
+	<tr>
+	     <td><th></th></td>
+	     <td>explain : </td>
+	     <td><input type="text" id="explain" value="tomato"></td>
+	</tr>
+	<tr>
+	     <td><th></th></td>
+	     <td>img : </td>
+	     <td><input type="text" id="img" value="tomato"></td>
+	</tr>
+    </table>
+</body>
+</html>
