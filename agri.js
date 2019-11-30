@@ -26,11 +26,9 @@ function postNohau(elementId){
 			});
 }
 
-function countFav() {	//count
+function countFav(post_id) {	//count
 	var fav = document.getElementById("fav").value;
-	var post = document.getElementById("post_id").value;
 	Vegetables.equalTo("post_id", post_id)
-		.count()
 		.fetch()
 		.then(function(vegetables){
 			// if (vagetables.count >= 0){
@@ -50,7 +48,7 @@ function countFav() {	//count
 		});
 }
 
-function getNohau(elementId){
+function getNohau(){
 	    Vegetables.fetchAll()
 			.then(function(obj){
 						return obj;
@@ -62,12 +60,14 @@ function getNohau(elementId){
 }
 
 function getFav(post_id){
-	    Vegetables.fetch()
-			.then(function(obj){
+	    Vegetables.equalTo("post_id", post_id)
+				.fetch()
+				.then(function(vegetables){
+					return vegetables.fav;
 						console.log("Fav取得");
-						return obj.fav;
 			})
 			.catch(function(err){
 				console.log("error");
-			});
+
+			})
 }
