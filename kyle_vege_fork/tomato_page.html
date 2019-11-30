@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title id="title">トマトのページ</title>
+    <link rel="icon" href="img/tomatotomato.jpg">
+    <meta name="description" content="トマトのノウハウページです。">
+    <link rel="stylesheet" href="tomato_page.css">
+    <script type="text/javascript" src="ncmb.min.js"></script>
+    <script type="text/javascript" src="agri.js"></script>
+    <script type="text/javascript" src="tomato_page.js"></script>
+    <!-- <link rel="stylesheet" href="ncmb.min.js"> -->
+    <!-- <link rel="stylesheet" href="agri.js"> -->
+  </head>
+
+  <body background="img/tomato3.gif">
+    <header>
+      <!-- <div id="title-innner" style="background-image:C.jpg: center -326px;"> -->
+      <h1 class="logo">
+        <span class="logo-name">トマトのページ</span>
+
+        <!-- <span class="logo-title">&nbsp;PORTFOLIO</span> -->
+        <!-- <span class="logo-desc"></span> -->
+      </h1>
+    </header>
+
+      <p>トマトのノウハウをまとめています。</p>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- kyle fork -->
+      <script type="text/javascript">
+      //ここを頑張ってapiで取得してほしい
+        var json = [
+        {
+          "fav":"not use",
+          "user_id": "13413515",
+          "vegi_name": "caggage",
+          "title": "not use",
+          "explain" :"not use",
+          "img":"http:asdfasdf"
+        },
+        {
+          "fav":"1000",
+          "user_id": "1341",
+          "vegi_name": "tomato",
+          "title": "hoge",
+          "explain" :"ほげ",
+          "img":"https://i.gzn.jp/img/2018/01/15/google-gorilla-ban/00.jpg"
+        },
+        {
+          "fav":"324",
+          "user_id": "1351",
+          "vegi_name": "tomato",
+          "title": "種まき時期",
+          "explain" :"３月がおすすめ",
+          "img":"https://asset.oceans-nadia.com/upload/save_image/f3/f38417a3a4c56dfcb10483d72fc039e0_20170130214945.jpg?impolicy=crop&w=1560&h=1040"
+        },
+      ]
+
+      var ArrayForSort=[];
+      for (var i = 0; i < json.length; i++) {
+        if ( json[i]["vegi_name"]=="tomato" ){ //ここのトマトだけ変えればいい
+          ArrayForSort.push( [ json[i]["fav"] , i ] );
+        }
+      }
+
+      ArrayForSort.sort(function(a, b){
+        return a - b;
+      });
+
+      //      document.write(ArrayForSort);
+      for (var i = 0; i < ArrayForSort.length; i++) {
+        var jsonI = json[ ArrayForSort[i][1] ];
+        document.write('<center><div style = "padding: 0.5em 1em;margin: 2em 0;height: 500px; width: 550px;color: #5d627b;background: white;border-top: solid 20px #5d627b;box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);"><img src=');
+        document.write(jsonI["img"]);
+        //スペースに注意このまま移植
+        document.write(' width=500px align="center" /><h1>');
+        document.write(jsonI["title"]);
+        document.write('</h1><p>');
+        document.write(jsonI["explain"]);
+        document.write('</p><h2>ファボ数');
+        document.write(jsonI["fav"]);
+        document.write('</h2></div></center>');
+      }
+      </script>
+      
+      <!-- kyle fork end-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <p>投稿内容</p>
+      <!-- <input type="button" class="btn" name="btn1" value="いいね" id="fav">　いいね数 -->
+      <button type="button" class="btn" onclick="implementFav()">いいね！</button> <label id="fav"></label>
+
+  　<br>
+
+      <div id="objectId">
+        投稿者ID:<input type="number" name="personal_name" id="user_id"><br>
+        <!-- 野菜名:<textarea id="vegi_name"></textarea><br> -->
+        野菜名&nbsp;&nbsp;&nbsp;:<input type="text" id="vegi_name"><br>
+        タイトル:<input type="text" id="title"><br>
+        内容:<br><textarea name="contents" rows="8" cols="40" id="explain"></textarea><br><br>
+        画像:<input type="text" id="img" value="https://www.bing.com/images/search?view=detailV2&id=5E988811420B8B1CB2E9B5F34A53B06D146C3F7E&thid=OIP.oRMWAZIhlwX3mUNcO03C0AHaFS&mediaurl=https%3A%2F%2Fc-lj.gnst.jp%2Fpublic%2Farticle%2Fdetail%2Fa%2F00%2F01%2Fa0001249%2Fimg%2Fbasic%2Fa0001249_main.jpg%3F20170710180732&exph=536&expw=750&q=%e3%83%88%e3%83%9e%e3%83%88&selectedindex=5&ajaxhist=0&vt=0&eim=0,1,6">
+        <input type="submit" name="btn1" value="投稿する" onclick="postToukou()">
+      </div>
+
+  </body>
+</html>
