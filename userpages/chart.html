@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <link rel="stylesheet" type="text/css" href="chart.css">
+<link rel="stylesheet" type="text/css" href="../index.css">
 
 <head>
         <meta charset="utf-8">
@@ -8,21 +9,34 @@
 </head>
 
 <body>
-        <h1>Aさんのページ</h1>
+        <div style="padding: 10px; 
+        	        margin-bottom: 10px; 
+                        border: 5px 
+                        double #333333; 
+                        background-color: #009999;">
+                <center>
+                        <h1>
+                                Aさんのページ
+                        </h1>
+                </center>
+        </div>
+
         <h3>
                 <font color="red">トマトの評価</font>
                 :いいね！<span id="tomato_thumb">NULL</p>
         </h3>
         <h3>
                 <font color="green">キャベツの評価</font>
-                :いいね<span id="cabbage_thumb">NULL</p>
+                :いいね!<span id="cabbage_thumb">NULL</p>
         </h3>
 
+        <script src="../ncmb.min.js"></script>
+        <script src="../agri.js"></script>
         <script>
                 var tomato = document.getElementById("tomato_thumb");
-                tomato.innerHTML = 0;
+                tomato.innerHTML = getFav(0);
                 var cabbage = document.getElementById("cabbage_thumb");
-                cabbage.innerHTML = 0;
+                cabbage.innerHTML = getFav(0);
 
         </script>
 
@@ -30,9 +44,13 @@
         <h2>畑の情報</h2>
 
         <h3>気温</h3>
-        <canvas id="TempetureChart"></canvas>
+        <div class="graph_back">
+                <canvas id="TempetureChart"></canvas>
+        </div>
         <h3>湿度</h3>
-        <canvas id="HumdityChart"></canvas>
+        <div class="graph_back">
+                <canvas id="HumdityChart"></canvas>
+        </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 
         <script>
