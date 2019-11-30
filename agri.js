@@ -54,17 +54,20 @@ function getNohau() {
 	setTimeout(function () { console.log("done") }, 100);
 }
 
-function getFav(objectId) {
+function getFav(objectId, text_obj) {
+	var tmp = -1;
 	Vegetables.equalTo("objectId", objectId)
 		.fetch()
 		.then(function (vegetables) {
-			return vegetables.fav;
 			console.log("Fav取得");
+			tmp = vegetables.fav;
+			return tmp;
 		})
 		.catch(function (err) {
 			console.log("error");
-
+			return tmp;
 		})
-	setTimeout(function () { console.log("done") }, 100);
 
+	setTimeout(function () { console.log("done"); text_obj.innerHTML = tmp; }, 1000);
+	return tmp;
 }
