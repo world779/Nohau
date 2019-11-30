@@ -19,10 +19,10 @@ function postNohau(elementId){
 		vegetables.set("img", img);
 		vegetables.save()
 			.then(function(obj){
-				setResult(elementId, true, "success");
+			console.log("保存");
 			})
 			.catch(function(err){
-				setResult(elementId, false, "error"+err);
+				console.log("error");
 			});
 }
 
@@ -46,28 +46,28 @@ function countFav() {	//count
 		 console.log("Favが加算されました。");
 	 })
 		.catch(function(err){
-			setResult(elementId, false, "error"+err);
+			console.log("error");
 		});
 }
 
 function getNohau(elementId){
 	    Vegetables.fetchAll()
 			.then(function(obj){
-						setResult(elementId, true, "success");
 						return obj;
+						console.log("取得");
 			})
 			.catch(function(err){
-				setResult(elementId, false, "error"+err);
+				console.log("error")
 			});
 }
 
 function getFav(post_id){
 	    Vegetables.fetch()
 			.then(function(obj){
-						setResult(post_id, true, "success");
+						console.log("Fav取得");
 						return obj.fav;
 			})
 			.catch(function(err){
-				setResult(elementId, false, "error"+err);
+				console.log("error");
 			});
 }
