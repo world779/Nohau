@@ -2,14 +2,16 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title>トマトのページ</title>
-    <link rel="icon" href="tomato.jpg">
+    <title id="title">トマトのページ</title>
+    <link rel="icon" href="img/tomatotomato.jpg">
     <meta name="description" content="トマトのノウハウページです。">
     <link rel="stylesheet" href="tomato_page.css">
+    <script type="text/javascript" src="ncmb.min.js"></script>
+    <script type="text/javascript" src="agri.js"></script>
   </head>
 
-  <body background="tomato3.gif">
-    <header id="header">
+  <body background="img/tomato3.gif">
+    <header>
       <!-- <div id="title-innner" style="background-image:C.jpg: center -326px;"> -->
       <h1 class="logo">
         <span class="logo-name">トマトのページ</span>
@@ -22,17 +24,20 @@
       <p>トマトのノウハウをまとめています。</p>
     </section>
     <section>
-      <p id="post_id">投稿内容</p>
+      <p>投稿内容</p>
       <!-- <input type="button" class="btn" name="btn1" value="いいね" id="fav">　いいね数 -->
-      <button type="button" class="btn">いいね！</button> いいね数
+      <button type="button" class="btn" onclick="countFav()">いいね！</button> <label id="fav">いいね数</label>
     </section>
   　<br>
     <section>
        <form method="POST">
-        投稿者ID:<input type="number" name="personal_name"><br><br>
-        内容:<br><textarea name="contents" rows="8" cols="40">
-        </textarea><br><br>
-        <input type="submit" name="btn1" value="投稿する" id="post_id">
+        投稿者ID:<input type="number" name="personal_name" id="user_id"><br>
+        <!-- 野菜名:<textarea id="vegi_name"></textarea><br> -->
+        野菜名&nbsp;&nbsp;&nbsp;:<input type="text" id="vegi_name"><br>
+        タイトル:<input type="text" id="title"><br>
+        内容:<br><textarea name="contents" rows="8" cols="40" id="explain"></textarea><br><br>
+        画像:<input type="text" id="img" value="https://www.bing.com/images/search?view=detailV2&id=5E988811420B8B1CB2E9B5F34A53B06D146C3F7E&thid=OIP.oRMWAZIhlwX3mUNcO03C0AHaFS&mediaurl=https%3A%2F%2Fc-lj.gnst.jp%2Fpublic%2Farticle%2Fdetail%2Fa%2F00%2F01%2Fa0001249%2Fimg%2Fbasic%2Fa0001249_main.jpg%3F20170710180732&exph=536&expw=750&q=%e3%83%88%e3%83%9e%e3%83%88&selectedindex=5&ajaxhist=0&vt=0&eim=0,1,6">
+        <input type="submit" name="btn1" value="投稿する" onclick="postNohau()">
         </form>
     </section>
   </body>
