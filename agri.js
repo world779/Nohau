@@ -2,7 +2,7 @@ var appKey = "b0d79659fafe27fe567c7086b2a2a816efe837b448d377183292b3f367cef80a";
 var clientKey = "386d15b14d1383343384514850c7ef64b47e9f75a86f4ebfed21557835003c8e";
 var ncmb= new NCMB(appKey, clientKey);
 var Vegetables = ncmb.DataStore("Vegetables");
-function postNohau(){
+function postNohau(elementId){
 	var fav = document.getElementById("fav").value;
 	var user_id = document.getElementById("user_id").value;
 	var vegi_name = document.getElementById("vegi_name").value;
@@ -11,7 +11,7 @@ function postNohau(){
 	var explain = document.getElementById("explain").value;
 	var img = document.getElementById("img").value;
 	var vegetables = new Vegetables();
-		vegetables.set("fav", fav);
+		vegetables.set("fav", Number(fav));
 		vegetables.set("vegi_name", vegi_name);
 		vegetables.set("post_id", post_id);
 		vegetables.set("title", title);
