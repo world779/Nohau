@@ -1,0 +1,67 @@
+/* header */
+
+#header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  height: 100px;
+  /* margin: 0; */
+  /* background: url("yuna.jpg")repeat-x top left; */
+}
+
+#header .logo {
+  display: block;
+  /* display: inline-block; */
+}
+
+#header .logo-name {
+  display: block;
+  font-family: 'Amatic SC', cursive;
+  font-size: 32px;
+  line-height: 1;
+  text-align: center;
+  color: #757575;
+  margin-bottom: 5px;
+}
+
+#header .logo-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 88px;
+  font-weight: normal;
+  color: #f39ac7;
+  line-height: 1;
+  letter-spacing: .1em;
+}
+
+
+.btn{
+  position: relative;
+  display: inline-block;
+  border-radius: 5px;
+  background-color: orchid;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  width: 80px;
+  font-size: 12px;
+}
+.btn:after{
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 6px;
+  height: 6px;
+  margin: -4px 0 0 0;
+  border-top: solid 2px #fff;
+  border-right: solid 2px #fff;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
