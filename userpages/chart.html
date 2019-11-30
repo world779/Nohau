@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <link rel="stylesheet" type="text/css" href="chart.css">
-<link rel="stylesheet" type="text/css" href="../index.css">
+
 
 <head>
         <meta charset="utf-8">
@@ -20,43 +20,79 @@
                         </h1>
                 </center>
         </div>
+        <center>
 
-        <h3>
-                <font color="red">トマトの評価</font>
-                :いいね！<span id="tomato_thumb">NULL</p>
-        </h3>
-        <h3>
-                <font color="green">キャベツの評価</font>
-                :いいね!<span id="cabbage_thumb">NULL</p>
-        </h3>
+                <h3>
+                        <font color="red">トマトの評価</font>
+                        :いいね！<span id="tomato_thumb">NULL</p>
+                </h3>
+                <h3>
+                        <font color="green">キャベツの評価</font>
+                        :いいね!<span id="cabbage_thumb">NULL</p>
+                </h3>
 
-        <script src="../ncmb.min.js"></script>
-        <script src="../agri.js"></script>
-        <script>
-                var tomato = document.getElementById("tomato_thumb");
-                tomato.innerHTML = getFav(0);
-                var cabbage = document.getElementById("cabbage_thumb");
-                cabbage.innerHTML = getFav(0);
+                <script src="../ncmb.min.js"></script>
+                <script src="../agri.js"></script>
+                <script>
+                        var tomato = document.getElementById("tomato_thumb");
+                        var tmp = getFav("PqByMustuz1OV6kX");
+                        tomato.innerHTML = tmp;
 
-        </script>
+                        var cabbage = document.getElementById("cabbage_thumb");
+                        cabbage.innerHTML = getFav("PqByMustuz1OV6kX");
+
+                </script>
+
+                <h2>畑の情報</h2>
+                <table border bgcolor="#fffff">
+                        <tr>
+                                <td>
+                                        <div class="graph_back">
+                                                <h3>気温</h3>
+                                                <canvas id="TempetureChart"></canvas>
+                                                <br>
+
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="graph_back">
+
+                                                <h3>湿度</h3>
+                                                <canvas id="HumdityChart"></canvas>
+                                        </div>
+
+                                </td>
+                        </tr>
+                        <tr>
+                                <td>
+                                        <div class="graph_back">
+
+                                                <h3>CO2濃度</h3>
+                                                <canvas id="CO2Chart"></canvas>
+                                        </div>
+
+                                </td>
+                                <td>
+                                        <div class="graph_back">
+
+                                                <h3>CO2濃度</h3>
+                                                <canvas id="DiffLightChart"></canvas>
+                                        </div>
+
+                                </td>
+                        </tr>
+                </table>
 
 
-        <h2>畑の情報</h2>
 
-        <h3>気温</h3>
-        <div class="graph_back">
-                <canvas id="TempetureChart"></canvas>
-        </div>
-        <h3>湿度</h3>
-        <div class="graph_back">
-                <canvas id="HumdityChart"></canvas>
-        </div>
+        </center>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 
         <script>
                 var ctx1 = document.getElementById("TempetureChart");
                 var ctx2 = document.getElementById("HumdityChart");
-
+                var ctx4 = document.getElementById("CO2Chart");
+                var ctx3 = document.getElementById("DiffLightChart");
 
                 var TempetureChart = new Chart(ctx1, {
                         type: 'line',
@@ -88,6 +124,7 @@
                                                 }
                                         }]
                                 },
+                                maintainAspectRatio: false
                         }
                 });
 
@@ -123,8 +160,78 @@
                                                 }
                                         }]
                                 },
+                                maintainAspectRatio: false
                         }
                 });
+
+                var CO2Chart = new Chart(ctx3, {
+                        type: 'line',
+                        data: {
+                                labels: ["1:00:00", "2:00:00", "3:00:00", "4:00:00", "5:00:00", "6:00:00", "7:00:00", "8:00:00", "9:00:00", "10:00:00", "11:00:00", "12:00:00", "13:00:00", "14:00:00", "15:00:00", "16:00:00", "17:00:00", "18:00:00", "19:00:00", "20:00:00", "21:00:00", "22:00:00", "23:00:00", " 00:00:00"],
+                                datasets: [
+                                        {
+                                                label: '気温',
+                                                data: [1.4, 2.1, 1.5, 1.4, 1.1, 2.5, 1.5, 3.1, 5.8, 7.1, 8.6, 9.6, 10.2, 10.2, 9.2, 8.6, 6.4, 6.2, 6, 5.9, 5.6, 5.5, 4.4, 4.2],
+                                                borderColor: "rgba(255,0,0,1)",
+                                                backgroundColor: "rgba(0,0,0,0)"
+                                        }
+                                ],
+                        },
+                        options: {
+                                title: {
+                                        display: true,
+                                        text: '気温（1月1日）'
+                                },
+                                scales: {
+                                        yAxes: [{
+                                                ticks: {
+                                                        suggestedMax: 40,
+                                                        suggestedMin: 0,
+                                                        stepSize: 10,
+                                                        callback: function (value, index, values) {
+                                                                return value + '度'
+                                                        }
+                                                }
+                                        }]
+                                },
+                                maintainAspectRatio: false
+                        }
+                });
+
+                var DiffLightChart = new Chart(ctx4, {
+                        type: 'line',
+                        data: {
+                                labels: ["1:00:00", "2:00:00", "3:00:00", "4:00:00", "5:00:00", "6:00:00", "7:00:00", "8:00:00", "9:00:00", "10:00:00", "11:00:00", "12:00:00", "13:00:00", "14:00:00", "15:00:00", "16:00:00", "17:00:00", "18:00:00", "19:00:00", "20:00:00", "21:00:00", "22:00:00", "23:00:00", " 00:00:00"],
+                                datasets: [
+                                        {
+                                                label: '気温',
+                                                data: [1.4, 2.1, 1.5, 1.4, 1.1, 2.5, 1.5, 3.1, 5.8, 7.1, 8.6, 9.6, 10.2, 10.2, 9.2, 8.6, 6.4, 6.2, 6, 5.9, 5.6, 5.5, 4.4, 4.2],
+                                                borderColor: "rgba(255,0,0,1)",
+                                                backgroundColor: "rgba(0,0,0,0)"
+                                        }
+                                ],
+                        },
+                        options: {
+                                title: {
+                                        display: true,
+                                        text: '気温（1月1日）'
+                                },
+                                scales: {
+                                        yAxes: [{
+                                                ticks: {
+                                                        suggestedMax: 40,
+                                                        suggestedMin: 0,
+                                                        stepSize: 10,
+                                                        callback: function (value, index, values) {
+                                                                return value + '度'
+                                                        }
+                                                }
+                                        }]
+                                },
+                                maintainAspectRatio: false
+                        }
+                });
+
         </script>
 </body>
 
