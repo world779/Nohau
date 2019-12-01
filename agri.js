@@ -42,16 +42,16 @@ function countFav(objectId) {	//count
 		});
 }
 
-function getNohau() {
-	Vegetables.fetchAll()
-		.then(function (obj) {
-			return obj;
-			console.log("取得");
-		})
-		.catch(function (err) {
-			console.log("error")
-		});
-	setTimeout(function () { console.log("done") }, 100);
+async function getNohau() {
+	return  Vegetables.fetchAll()
+	// 	.then(function (obj) {
+	// 		return obj;
+	// 		console.log("取得");
+	// 	})
+	// 	.catch(function (err) {
+	// 		console.log("error")
+	// 	});
+	// setTimeout(function () { console.log("done") }, 100);
 }
 
 function getFav(objectId, text_obj) {
