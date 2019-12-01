@@ -84,12 +84,14 @@
       //      document.write(ArrayForSort);
       for (var i = 0; i < ArrayForSort.length; i++) {
         var jsonI = json[ ArrayForSort[i][1] ];
-        document.write('<center><div style = "padding: 0.5em 1em;margin: 2em 0;height: 500px; width: 550px;color: #5d627b;background: white;border-top: solid 20px #5d627b;box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);"><img src=');
+        document.write('<center><div style = "padding: 0.5em 1em;margin: 2em 0;height: 800px; width: 550px;color: #5d627b;background: white;border-top: solid 20px #5d627b;box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);"><img src=');
         document.write(jsonI["img"]);
         //スペースに注意このまま移植
         document.write(' width=500px align="center" /><h1>');
         document.write(jsonI["title"]);
-        document.write('</h1><p>');
+        document.write('</h1><h2>');
+        document.write(jsonI["user_id"]);
+        document.write('さんの投稿です。</h2><p>');
         document.write(jsonI["explain"]);
         document.write('</p><h2>ファボ数');
         document.write(jsonI["fav"]);
